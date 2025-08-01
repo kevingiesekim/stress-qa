@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Q&A</title>
   <link rel="icon" type="image/png" href="https://yt3.googleusercontent.com/pQBD1tbxoYhKuzpBcYvPiFgdhQh__6x5XLS9W80CK1-wc4BlLurwXb544tkWpvie_HPUk35r6w=s160-c-k-c0x00ffffff-no-rj">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,500&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,500&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Noto Sans', sans-serif;
       background-color: #302c45;
       margin: 0;
       padding: 40px 20px;
@@ -49,6 +49,7 @@
     }
 
     .question {
+      font-family: 'Noto Sans', sans-serif;
       font-weight: bold;
       margin-bottom: 4px;
     }
@@ -95,6 +96,11 @@
 
     .twitch-link:hover {
       transform: scale(1.1);
+    }
+
+    /* Prevent underline effect on Twitch icon */
+    .twitch-link::after {
+      display: none !important;
     }
 
     .twitch-icon {
