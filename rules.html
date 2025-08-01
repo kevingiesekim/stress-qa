@@ -21,11 +21,6 @@ body.loaded {
   animation: fadeIn 0.15s ease-out forwards;
 }
 
-body.fade-out {
-  transition: opacity 0.1s ease-in;
-  opacity: 0;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -221,29 +216,8 @@ body.fade-out {
 <script>
   window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('loaded');
-
-    document.querySelectorAll('a[href]').forEach(link => {
-      const url = new URL(link.href);
-      const isInternal = url.hostname === location.hostname;
-
-      if (isInternal) {
-        link.addEventListener('click', e => {
-          if (link.getAttribute('href').startsWith('#')) return;
-
-          e.preventDefault();
-          document.body.classList.remove('loaded');
-          document.body.classList.add('fade-out');
-          setTimeout(() => {
-            window.location = link.href;
-          }, 100); // match fade-out duration
-        });
-      }
-    });
   });
 </script>
-
-
-
   
 </body>
 </html>
