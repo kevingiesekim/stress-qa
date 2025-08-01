@@ -18,11 +18,11 @@
 }
 
 body.loaded {
-  animation: fadeIn 0.4s ease-out forwards;
+  animation: fadeIn 0.15s ease-out forwards;
 }
 
 body.fade-out {
-  transition: opacity 0.25s ease-in;
+  transition: opacity 0.1s ease-in;
   opacity: 0;
 }
 
@@ -235,12 +235,13 @@ body.fade-out {
           document.body.classList.add('fade-out');
           setTimeout(() => {
             window.location = link.href;
-          }, 250); // match fade-out speed
+          }, 100); // match fade-out duration
         });
       }
     });
   });
 </script>
+
 
 
   
