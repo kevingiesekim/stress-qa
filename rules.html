@@ -22,16 +22,16 @@
 nav {
   position: fixed;
   top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(61, 55, 90, 0.5); /* translucent background */
-  backdrop-filter: blur(12px); /* frosted glass effect */
-  -webkit-backdrop-filter: blur(12px); /* for Safari */
-  padding: 12px 24px;
-  border-radius: 12px;
+  left: 0;
+  width: 100%;
+  background-color: rgba(61, 55, 90, 0.25); /* lighter translucent background */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 12px 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   z-index: 999;
   display: flex;
+  justify-content: center;
   gap: 24px;
 }
 
