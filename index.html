@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Q&A</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
   <style>
     html {
       scroll-behavior: smooth;
@@ -32,6 +33,7 @@
     }
 
     h1 {
+      font-family: 'Oswald', sans-serif;
       font-size: 40px;
       text-transform: uppercase;
       font-style: italic;
@@ -77,7 +79,6 @@
       width: 36px;
       height: 36px;
       vertical-align: middle;
-      filter: brightness(1.2);
     }
 
     .caption {
@@ -124,39 +125,27 @@
     <a id="top"></a>
     <h1>Get to know me:<br>Questions & Answers</h1>
 
-    <div class="qa">
-      <div class="question">What’s your name?</div>
-      <div class="answer">Kevin</div>
-    </div>
+    <!-- Original Q&A -->
+    <div class="qa"><div class="question">What’s your name?</div><div class="answer">Kevin</div></div>
+    <div class="qa"><div class="question">What do you do?</div><div class="answer">Semi-functioning human bean</div></div>
+    <div class="qa"><div class="question">What do you like?</div><div class="answer">Naps with a cool breeze, ramen, tennis, Apex Legends, miso soup, and stress (the Twitch channel, not the emotion).</div></div>
+    <div class="qa"><div class="question">What don’t you like?</div><div class="answer">Wet socks, people who litter, being perceived.</div></div>
+    <div class="qa"><div class="question">Where can I find you?</div><div class="answer">On <a href="https://twitch.tv/stress" target="_blank">Twitch</a> or avoiding social interaction somewhere.</div></div>
+    <div class="qa"><div class="question">Can I tip you?</div><div class="answer">Only if it won’t hurt your soul, and wallet.</div></div>
 
-    <div class="qa">
-      <div class="question">What do you do?</div>
-      <div class="answer">Semi-functioning human bean</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">What do you like?</div>
-      <div class="answer">Naps with a cool breeze, ramen, tennis, Apex Legends, miso soup, and stress (the Twitch channel, not the emotion).</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">What don’t you like?</div>
-      <div class="answer">Wet socks, people who litter, being perceived.</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Where can I find you?</div>
-      <div class="answer">On <a href="https://twitch.tv/stress" target="_blank">Twitch</a> or avoiding social interaction somewhere.</div>
-    </div>
-
-    <div class="qa">
-      <div class="question">Can I tip you?</div>
-      <div class="answer">Only if it won’t hurt your soul, and wallet.</div>
-    </div>
+    <!-- Temporary filler Q&A for scrolling -->
+    <div class="qa"><div class="question">Favorite color?</div><div class="answer">Depends on my mood and lighting. Usually midnight blue or soft purple.</div></div>
+    <div class="qa"><div class="question">Coffee or tea?</div><div class="answer">Yes.</div></div>
+    <div class="qa"><div class="question">Most used emoji?</div><div class="answer">🫠</div></div>
+    <div class="qa"><div class="question">First game you ever played?</div><div class="answer">Probably something pixelated and traumatic.</div></div>
+    <div class="qa"><div class="question">Your current desktop wallpaper?</div><div class="answer">An image I thought was relaxing but now gives me existential dread.</div></div>
+    <div class="qa"><div class="question">Spirit animal?</div><div class="answer">A cat that's constantly confused but oddly confident.</div></div>
+    <div class="qa"><div class="question">Last thing you Googled?</div><div class="answer">How to pretend you're okay while Googling things.</div></div>
+    <div class="qa"><div class="question">Preferred apocalypse weapon?</div><div class="answer">Sarcasm and maybe a machete.</div></div>
 
     <footer>
       <a href="https://twitch.tv/stress" target="_blank" class="twitch-link" aria-label="Visit my Twitch">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitch.svg" alt="Twitch" class="twitch-icon" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Twitch_icon_White.svg" alt="Twitch" class="twitch-icon" />
       </a>
       <div class="caption">Watch me suffer live.</div>
     </footer>
@@ -168,7 +157,6 @@
 
   <script>
     const backToTopBtn = document.getElementById('backToTop');
-
     window.addEventListener('scroll', () => {
       if (window.scrollY > 150) {
         backToTopBtn.classList.add('show');
