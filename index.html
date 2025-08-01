@@ -160,7 +160,7 @@
     <div class="qa"><div class="question">Where can I find you?</div><div class="answer">On <a href="https://twitch.tv/stress" target="_blank">Twitch</a> or avoiding social interaction somewhere.</div></div>
     <div class="qa"><div class="question">Can I tip you?</div><div class="answer">Only if it won’t hurt your soul, and wallet.</div></div>
 
-    <!-- More Q&A for scroll -->
+    <!-- Extra Q&A for scroll testing -->
     <div class="qa"><div class="question">Favorite food?</div><div class="answer">Ramen. Shin Ramen. Two packs. No regrets.</div></div>
     <div class="qa"><div class="question">Favorite game?</div><div class="answer">Wattson mains rise up.</div></div>
     <div class="qa"><div class="question">Weirdest fear?</div><div class="answer">Accidentally replying all on a company-wide email.</div></div>
@@ -169,6 +169,13 @@
     <div class="qa"><div class="question">Favorite time of day?</div><div class="answer">That magical moment when food delivery finally arrives.</div></div>
     <div class="qa"><div class="question">Childhood dream job?</div><div class="answer">Pokémon master. Still pending.</div></div>
     <div class="qa"><div class="question">Most used emoji?</div><div class="answer">😩</div></div>
+    <div class="qa"><div class="question">What's your go-to karaoke song?</div><div class="answer">"Tequila" — mostly because it's one word.</div></div>
+    <div class="qa"><div class="question">What's one thing you always lose?</div><div class="answer">My will to socialize at parties.</div></div>
+    <div class="qa"><div class="question">Coffee or tea?</div><div class="answer">Both. Simultaneously. For balance.</div></div>
+    <div class="qa"><div class="question">Favorite season?</div><div class="answer">Hoodie weather (a.k.a. Fall).</div></div>
+    <div class="qa"><div class="question">Most random talent?</div><div class="answer">I can recite the Pokémon theme song with emotional conviction.</div></div>
+    <div class="qa"><div class="question">What makes you laugh?</div><div class="answer">Timing. And ducks wearing hats.</div></div>
+    <div class="qa"><div class="question">Best snack?</div><div class="answer">Those tiny pretzels that come in party mix bags. Elite crunch.</div></div>
 
     <!-- Footer with Twitch icon -->
     <footer>
@@ -184,10 +191,12 @@
     <button class="back-to-top-button" id="backToTop" aria-label="Back to top">↑</button>
   </a>
 
+  <!-- Mobile-safe scroll detection -->
   <script>
     const backToTopBtn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 150) {
+      const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollPosition > 150) {
         backToTopBtn.classList.add('show');
       } else {
         backToTopBtn.classList.remove('show');
