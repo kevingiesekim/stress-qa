@@ -28,35 +28,34 @@
       z-index: 999;
     }
 
-    nav a {
-      color: #bbaaf0;
-      font-weight: bold;
-      text-decoration: none;
-      margin: 0 12px;
-      padding: 6px 10px;
-      position: relative;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
+nav a {
+  color: #bbaaf0;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 12px;
+  padding: 6px 10px;
+  position: relative;
+  border-radius: 6px;
+}
 
-    nav a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #bbaaf0;
+  transition: width 0.3s ease;
+}
 
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: transparent;
-    }
+nav a:hover::after {
+  width: 100%;
+}
 
-    nav a.active::after {
-      width: 100%;
-      background-color: #bbaaf0;
-    }
+nav a.active::after {
+  width: 100%;
+}
 
     .card {
       background-color: #3d375a;
@@ -91,11 +90,28 @@
       font-weight: normal;
     }
 
-    a {
-      color: #bbaaf0;
-      font-weight: bold;
-      text-decoration: none;
-    }
+/* General link styles (body text) */
+a {
+  color: #bbaaf0;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #bbaaf0;
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
 
     footer {
       text-align: center;
