@@ -92,12 +92,17 @@
       line-height: 1.1;
     }
 
-    ul {
-      padding-left: 1.2em;
+    .qa-pair {
+      margin-bottom: 32px;
     }
 
-    li {
-      margin-bottom: 12px;
+    .qa-pair p:first-child {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .qa-pair p:last-child {
+      margin: 0;
       line-height: 1.5;
     }
 
@@ -175,14 +180,37 @@
 <div class="card">
   <a id="top"></a>
   <h1>Awesome Artists</h1>
-  <ul>
-    <li>Q&A Concept & Chaos: Kevin Giese Kim</li>
-    <li>Design & Coding Collab: ChatGPT (hi 👋)</li>
-    <li>Font: Barlow by Jeremy Tribby (via Google Fonts)</li>
-    <li>Favicon: Your personal image source</li>
-    <li>Twitch Logo: Courtesy of Imgur hosting</li>
-    <li>Back pain while face washing: 100% original</li>
-  </ul>
+
+  <div class="qa-pair">
+    <p>Who made this chaos?</p>
+    <p>Kevin Giese Kim, obviously.</p>
+  </div>
+
+  <div class="qa-pair">
+    <p>Who helped code this weirdly aesthetic site?</p>
+    <p>ChatGPT (hi again 👋).</p>
+  </div>
+
+  <div class="qa-pair">
+    <p>What font is this?</p>
+    <p>Barlow from Google Fonts. Clean, classy, and a little stressed.</p>
+  </div>
+
+  <div class="qa-pair">
+    <p>Where's that adorable Twitch icon from?</p>
+    <p>Hosted on Imgur — the white glitch version.</p>
+  </div>
+
+  <div class="qa-pair">
+    <p>Back pain from hygiene?</p>
+    <p>Yeah... pulled a muscle washing my face. Legendary.</p>
+  </div>
+
+  <div class="qa-pair">
+    <p>Who gets credit for the vibes?</p>
+    <p>You do — for reading this far.</p>
+  </div>
+
 </div>
 
 <footer>
@@ -204,5 +232,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
+
 </body>
 </html>
