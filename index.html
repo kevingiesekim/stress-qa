@@ -4,31 +4,85 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Q&A</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #222222;
+      --link-color: #0066cc;
+      --link-hover: #004999;
+    }
+
+    body.dark {
+      --bg-color: #111111;
+      --text-color: #e5e5e5;
+      --link-color: #66aaff;
+      --link-hover: #88ccff;
+    }
+
     body {
-      font-family: sans-serif;
+      font-family: 'Oswald', sans-serif;
       max-width: 600px;
       margin: 40px auto;
       padding: 0 20px;
       line-height: 1.6;
-      background: #fff;
-      color: #222;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.4s ease, color 0.4s ease;
     }
+
     h1 {
       text-align: center;
       font-size: 1.8rem;
       margin-bottom: 40px;
     }
+
     .qa {
       margin-bottom: 24px;
     }
+
     .qa .question {
       font-weight: bold;
       margin-bottom: 4px;
     }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: var(--link-hover);
+    }
+
+    .toggle-container {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+    }
+
+    .toggle-button {
+      padding: 6px 12px;
+      border: none;
+      background: transparent;
+      color: var(--text-color);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .toggle-button:hover {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
+  <div class="toggle-container">
+    <button class="toggle-button" id="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </div>
+
   <h1>Q&amp;A</h1>
 
   <div class="qa">
@@ -61,5 +115,26 @@
     <div class="answer">Only if it won’t hurt your soul, and wallet.</div>
   </div>
 
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const isDark = body.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.getElementById('theme-toggle').textContent = isDark ? '☀️' : '🌙';
+    }
+
+    // Load saved theme on page load
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      const body = document.body;
+      const toggle = document.getElementById('theme-toggle');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark');
+        toggle.textContent = '☀️';
+      } else {
+        toggle.textContent = '🌙';
+      }
+    })();
+  </script>
 </body>
 </html>
