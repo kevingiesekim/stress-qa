@@ -184,14 +184,23 @@
   <div class="caption">Watch me suffer live.</div>
 </footer>
 
-<a href="#top"><button class="back-to-top-button" id="backToTop">↑</button></a>
+<button class="back-to-top-button" id="backToTop">↑</button>
 
 <script>
-const backToTopBtn = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-  backToTopBtn.classList.toggle('show', scrollPosition > 150);
-});
+  const backToTopBtn = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+    backToTopBtn.classList.toggle('show', scrollPosition > 150);
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 </script>
+
 </body>
 </html>
