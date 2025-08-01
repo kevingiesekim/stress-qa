@@ -7,10 +7,7 @@
   <link rel="icon" href="https://yt3.googleusercontent.com/pQBD1tbxoYhKuzpBcYvPiFgdhQh__6x5XLS9W80CK1-wc4BlLurwXb544tkWpvie_HPUk35r6w=s160-c-k-c0x00ffffff-no-rj" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Barlow+Condensed:ital,wght@1,500&display=swap" rel="stylesheet" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Barlow', sans-serif;
       background-color: #302c45;
@@ -18,58 +15,97 @@
       padding: 0;
       color: #ffffff;
     }
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(61, 55, 90, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 12px 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      display: flex;
+      gap: 24px;
+    }
+    nav a {
+      color: #bbaaf0;
+      font-weight: bold;
+      text-decoration: none;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #bbaaf0;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after { width: 100%; }
+    nav a.active::after { width: 100%; }
 
-nav {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background-color: rgba(61, 55, 90, 0.3); /* More translucent */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 12px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  z-index: 999;
-  display: flex;
-  gap: 24px;
-}
+    a {
+      color: #bbaaf0;
+      font-weight: bold;
+      text-decoration: none;
+      position: relative;
+    }
+    a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #bbaaf0;
+      transition: width 0.3s ease;
+    }
+    a:hover::after { width: 100%; }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1000;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #bbaaf0;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
 
-nav a {
-  color: #bbaaf0;
-  font-weight: bold;
-  text-decoration: none;
-  margin: 0 12px;
-  padding: 6px 10px;
-  position: relative;
-  border-radius: 6px;
-}
-
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #bbaaf0;
-  transition: width 0.3s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-nav a.active::after {
-  width: 100%;
-}
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        transform: translateX(-150%);
+        left: 20px;
+      }
+      nav.show {
+        transform: translateX(0);
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
 
     .card {
       background-color: #3d375a;
       border-radius: 12px;
       padding: 32px 24px;
       max-width: 600px;
-      margin: 40px auto;
+      margin: 100px auto 40px auto;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
@@ -83,9 +119,7 @@ nav a.active::after {
       line-height: 1.1;
     }
 
-    .qa {
-      margin-bottom: 24px;
-    }
+    .qa { margin-bottom: 24px; }
 
     .question {
       font-weight: bold;
@@ -93,32 +127,7 @@ nav a.active::after {
       margin-bottom: 4px;
     }
 
-    .answer {
-      font-weight: normal;
-    }
-
-/* General link styles (body text) */
-a {
-  color: #bbaaf0;
-  font-weight: bold;
-  text-decoration: none;
-  position: relative;
-}
-
-a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #bbaaf0;
-  transition: width 0.3s ease;
-}
-
-a:hover::after {
-  width: 100%;
-}
+    .answer { font-weight: normal; }
 
     footer {
       text-align: center;
@@ -183,56 +192,55 @@ a:hover::after {
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html" class="active">Q&A</a>
-    <a href="rules.html">Rules</a>
-  </nav>
+<div id="hamburger" class="hamburger">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
 
-  <div class="card">
-    <a id="top"></a>
-    <h1>Get to know me:<br>Questions & Answers</h1>
+<nav>
+  <a href="index.html" class="active">Q&A</a>
+  <a href="rules.html">Rules</a>
+</nav>
 
-    <!-- Restored Full Q&A Entries -->
-    <div class="qa"><div class="question">What’s your name?</div><div class="answer">Kevin</div></div>
-    <div class="qa"><div class="question">What do you do?</div><div class="answer">Semi-functioning human bean</div></div>
-    <div class="qa"><div class="question">What do you like?</div><div class="answer">Naps with a cool breeze, ramen, tennis, Apex Legends, miso soup, and stress (the Twitch channel, not the emotion).</div></div>
-    <div class="qa"><div class="question">What don’t you like?</div><div class="answer">Wet socks, people who litter, being perceived.</div></div>
-    <div class="qa"><div class="question">Where can I find you?</div><div class="answer">On <a href="https://twitch.tv/stress" target="_blank">Twitch</a> or avoiding social interaction somewhere.</div></div>
-    <div class="qa"><div class="question">Can I tip you?</div><div class="answer">Only if it won’t hurt your soul, and wallet.</div></div>
-    <div class="qa"><div class="question">Favorite food?</div><div class="answer">Ramen. Shin Ramen. Two packs. No regrets.</div></div>
-    <div class="qa"><div class="question">Favorite game?</div><div class="answer">Wattson mains rise up.</div></div>
-    <div class="qa"><div class="question">Weirdest fear?</div><div class="answer">Accidentally replying all on a company-wide email.</div></div>
-    <div class="qa"><div class="question">Guilty pleasure?</div><div class="answer">Scrolling memes until my responsibilities go away.</div></div>
-    <div class="qa"><div class="question">Pet peeve?</div><div class="answer">Loud chewing. And people who don’t use turn signals.</div></div>
-    <div class="qa"><div class="question">Favorite time of day?</div><div class="answer">That magical moment when food delivery finally arrives.</div></div>
-    <div class="qa"><div class="question">Childhood dream job?</div><div class="answer">Pokémon master. Still pending.</div></div>
-    <div class="qa"><div class="question">Most used emoji?</div><div class="answer">😩</div></div>
-    <div class="qa"><div class="question">Go-to karaoke song?</div><div class="answer">“Tequila” — mostly because it’s one word.</div></div>
-    <div class="qa"><div class="question">What do you always lose?</div><div class="answer">My will to socialize at parties.</div></div>
-    <div class="qa"><div class="question">Coffee or tea?</div><div class="answer">Both. Simultaneously. For balance.</div></div>
-    <div class="qa"><div class="question">Favorite season?</div><div class="answer">Hoodie weather (a.k.a. Fall).</div></div>
-    <div class="qa"><div class="question">Random talent?</div><div class="answer">I can recite the Pokémon theme song with emotional conviction.</div></div>
-    <div class="qa"><div class="question">What makes you laugh?</div><div class="answer">Timing. And ducks wearing hats.</div></div>
-    <div class="qa"><div class="question">Best snack?</div><div class="answer">Those tiny pretzels that come in party mix bags. Elite crunch.</div></div>
+<div class="card">
+  <a id="top"></a>
+  <h1>Get to know me:<br>Questions & Answers</h1>
 
-    <footer>
-      <a href="https://twitch.tv/stress" target="_blank" class="twitch-link">
-        <img src="https://i.imgur.com/Urw30ly.png" alt="Twitch" class="twitch-icon" />
-      </a>
-      <div class="caption">Watch me suffer live.</div>
-    </footer>
-  </div>
+  <div class="qa"><div class="question">What’s your name?</div><div class="answer">Kevin</div></div>
+  <div class="qa"><div class="question">What do you do?</div><div class="answer">Semi-functioning human bean</div></div>
+  <div class="qa"><div class="question">Where can I find you?</div><div class="answer">On <a href="https://twitch.tv/stress" target="_blank">Twitch</a>.</div></div>
+  <div class="qa"><div class="question">Favorite ramen?</div><div class="answer">Shin Ramen, 2 packets, max sodium.</div></div>
+  <div class="qa"><div class="question">Top fear?</div><div class="answer">Reply all.</div></div>
+  <div class="qa"><div class="question">Go-to karaoke song?</div><div class="answer">“Tequila.” Because that’s the only word.</div></div>
+  <div class="qa"><div class="question">Favorite season?</div><div class="answer">Fall. Mood matches weather.</div></div>
+  <div class="qa"><div class="question">Cats or dogs?</div><div class="answer">Cats. I would know. I have them.</div></div>
+  <div class="qa"><div class="question">What makes you irrationally angry?</div><div class="answer">People littering.</div></div>
+  <div class="qa"><div class="question">What’s your greatest weakness?</div><div class="answer">Carbs.</div></div>
 
-  <a href="#top">
-    <button class="back-to-top-button" id="backToTop">↑</button>
+</div>
+
+<footer>
+  <a href="https://twitch.tv/stress" target="_blank" class="twitch-link">
+    <img src="https://i.imgur.com/Urw30ly.png" alt="Twitch" class="twitch-icon" />
   </a>
+  <div class="caption">Watch me suffer live.</div>
+</footer>
 
-  <script>
-    const backToTopBtn = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-      backToTopBtn.classList.toggle('show', scrollPosition > 150);
-    });
-  </script>
+<a href="#top"><button class="back-to-top-button" id="backToTop">↑</button></a>
+
+<script>
+const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+  backToTopBtn.classList.toggle('show', scrollPosition > 150);
+});
+
+const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('nav');
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('show');
+});
+</script>
 </body>
 </html>
