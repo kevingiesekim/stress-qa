@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Q&A</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;1,400&family=Barlow+Condensed:ital,wght@1,500&display=swap" rel="stylesheet" />
   <style>
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: sans-serif;
+      font-family: 'Barlow', sans-serif;
       background-color: #302c45;
       margin: 0;
       padding: 40px 20px;
@@ -40,7 +40,7 @@
       text-align: left;
       margin-bottom: 40px;
       letter-spacing: 1px;
-      line-height: 1.1; /* tighter line spacing */
+      line-height: 1.1;
     }
 
     .qa {
@@ -53,11 +53,13 @@
     }
 
     a {
-      color: #80b3ff;
+      color: #bbaaf0;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     a:hover {
+      color: #d5ceff;
       text-decoration: underline;
     }
 
@@ -133,7 +135,7 @@
     <div class="qa"><div class="question">Where can I find you?</div><div class="answer">On <a href="https://twitch.tv/stress" target="_blank">Twitch</a> or avoiding social interaction somewhere.</div></div>
     <div class="qa"><div class="question">Can I tip you?</div><div class="answer">Only if it won’t hurt your soul, and wallet.</div></div>
 
-    <!-- Footer with new Twitch icon -->
+    <!-- Footer with Twitch icon -->
     <footer>
       <a href="https://twitch.tv/stress" target="_blank" class="twitch-link" aria-label="Visit my Twitch">
         <img src="https://i.imgur.com/Urw30ly.png" alt="Twitch" class="twitch-icon" />
