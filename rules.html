@@ -7,6 +7,10 @@
   <link rel="icon" href="https://yt3.googleusercontent.com/pQBD1tbxoYhKuzpBcYvPiFgdhQh__6x5XLS9W80CK1-wc4BlLurwXb544tkWpvie_HPUk35r6w=s160-c-k-c0x00ffffff-no-rj" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Barlow+Condensed:ital,wght@1,500&display=swap" rel="stylesheet" />
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Barlow', sans-serif;
       background-color: #302c45;
@@ -19,6 +23,9 @@
       background-color: #3d375a;
       padding: 16px;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
 
     nav a {
@@ -26,22 +33,29 @@
       font-weight: bold;
       text-decoration: none;
       margin: 0 12px;
+      padding: 6px 10px;
       position: relative;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
     }
 
     nav a::after {
       content: '';
       position: absolute;
+      bottom: -4px;
       left: 0;
-      bottom: -2px;
       width: 0;
       height: 2px;
-      background-color: #bbaaf0;
-      transition: width 0.3s ease;
+      background-color: transparent;
     }
 
-    nav a:hover::after {
+    nav a.active::after {
       width: 100%;
+      background-color: #bbaaf0;
     }
 
     .card {
@@ -58,34 +72,123 @@
       font-size: 42px;
       font-style: italic;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      text-align: left;
+      margin-bottom: 40px;
+      line-height: 1.1;
     }
 
     ul {
-      list-style: disc;
       padding-left: 20px;
     }
 
     li {
       margin-bottom: 12px;
     }
+
+    a {
+      color: #bbaaf0;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .twitch-link {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .twitch-link:hover {
+      transform: scale(1.1);
+    }
+
+    .twitch-link::after {
+      display: none !important;
+    }
+
+    .twitch-icon {
+      width: 36px;
+      height: 36px;
+      vertical-align: middle;
+    }
+
+    .caption {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #c5c0e3;
+      font-style: italic;
+    }
+
+    .back-to-top-button {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #9f95da;
+      color: #302c45;
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .back-to-top-button.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top-button:hover {
+      transform: scale(1.1);
+      background-color: #b7aff2;
+    }
   </style>
 </head>
 <body>
   <nav>
     <a href="index.html">Q&A</a>
-    <a href="rules.html">Rules</a>
+    <a href="rules.html" class="active">Rules</a>
   </nav>
 
   <div class="card">
-    <h1>Rules</h1>
+    <a id="top"></a>
+    <h1>Channel Rules</h1>
     <ul>
-      <li>Be kind. No bullying, hate speech, or harassment.</li>
-      <li>No spamming or self-promotion without permission.</li>
-      <li>Respect the mods — they’re here to keep things chill.</li>
-      <li>Keep spoilers to a minimum (or use spoiler tags).</li>
-      <li>We’re here to vibe. Don’t ruin it.</li>
+      <li>Be kind and respectful — no hate speech, slurs, or harassment.</li>
+      <li>No spoilers unless I’m crying and ask for help.</li>
+      <li>Don’t spam or self-promote (unless it’s ramen-related).</li>
+      <li>Mods have the final say — and they're probably funnier than me.</li>
+      <li>Keep it comfy, chaotic, and Twitch TOS-friendly.</li>
+      <li>Ask before trauma-dumping, trauma-dumps will be recycled as content.</li>
     </ul>
+
+    <footer>
+      <a href="https://twitch.tv/stress" target="_blank" class="twitch-link">
+        <img src="https://i.imgur.com/Urw30ly.png" alt="Twitch" class="twitch-icon" />
+      </a>
+      <div class="caption">Watch me suffer live.</div>
+    </footer>
   </div>
+
+  <a href="#top">
+    <button class="back-to-top-button" id="backToTop">↑</button>
+  </a>
+
+  <script>
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+      backToTopBtn.classList.toggle('show', scrollPosition > 150);
+    });
+  </script>
 </body>
 </html>
