@@ -14,7 +14,16 @@
       margin: 0;
       padding: 0;
       color: #ffffff;
+        opacity: 0;
+  transition: opacity 0.6s ease-in-out;
     }
+    body.loaded {
+  opacity: 1;
+}
+
+body.fade-out {
+  opacity: 0;
+}
     nav {
       position: fixed;
       top: 20px;
@@ -265,6 +274,31 @@
   });
 </script>
 
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('loaded');
+
+    // Link fade-out handler
+    document.querySelectorAll('a[href]').forEach(link => {
+      const url = new URL(link.href);
+      const isInternal = url.hostname === location.hostname;
+
+      if (isInternal) {
+        link.addEventListener('click', e => {
+          // Ignore anchor links and back-to-top buttons
+          if (link.getAttribute('href').startsWith('#')) return;
+
+          e.preventDefault();
+          document.body.classList.remove('loaded');
+          document.body.classList.add('fade-out');
+          setTimeout(() => {
+            window.location = link.href;
+          }, 300); // match fade-out duration
+        });
+      }
+    });
+  });
+</script>
 
 
 </body>
