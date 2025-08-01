@@ -1,0 +1,2 @@
+# stress-qa
+GET TO KNOW ME: QUESTIONS &amp; ANSWERS
