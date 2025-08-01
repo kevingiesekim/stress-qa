@@ -258,37 +258,13 @@
   });
 
   backToTopBtn.addEventListener('click', () => {
-    bounceScrollToTop();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
-
-  function bounceScrollToTop() {
-    const start = document.documentElement.scrollTop || document.body.scrollTop;
-    const duration = 800;
-    const startTime = performance.now();
-
-    function easeOutBounce(t) {
-      const n1 = 7.5625;
-      const d1 = 2.75;
-      if (t < 1 / d1) return n1 * t * t;
-      else if (t < 2 / d1) return n1 * (t -= 1.5 / d1) * t + 0.75;
-      else if (t < 2.5 / d1) return n1 * (t -= 2.25 / d1) * t + 0.9375;
-      else return n1 * (t -= 2.625 / d1) * t + 0.984375;
-    }
-
-    function animateScroll(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const bounce = easeOutBounce(progress);
-      window.scrollTo(0, start * (1 - bounce));
-
-      if (progress < 1) {
-        requestAnimationFrame(animateScroll);
-      }
-    }
-
-    requestAnimationFrame(animateScroll);
-  }
 </script>
+
 
 
 </body>
