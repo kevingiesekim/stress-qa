@@ -67,39 +67,6 @@
     }
     a:hover::after { width: 100%; }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      padding: 10px;
-      z-index: 1000;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: #bbaaf0;
-      margin: 4px 0;
-      transition: 0.4s;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        transform: translateX(-150%);
-        left: 20px;
-      }
-      nav.show {
-        transform: translateX(0);
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
-
     .card {
       background-color: #3d375a;
       border-radius: 12px;
@@ -108,6 +75,7 @@
       margin: 100px auto 40px auto;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
+
     h1 {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 42px;
@@ -117,31 +85,40 @@
       margin-bottom: 40px;
       line-height: 1.1;
     }
-    .qa { margin-bottom: 24px; }
-    .question {
-      font-weight: bold;
-      font-family: 'Barlow', sans-serif;
-      margin-bottom: 4px;
+
+    ul {
+      padding-left: 1.2em;
     }
-    .answer { font-weight: normal; }
+
+    li {
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
 
     footer {
       text-align: center;
       margin-top: 40px;
     }
+
     .twitch-link {
       display: inline-block;
       transition: transform 0.2s ease;
     }
+
     .twitch-link:hover {
       transform: scale(1.1);
     }
-    .twitch-link::after { display: none !important; }
+
+    .twitch-link::after {
+      display: none !important;
+    }
+
     .twitch-icon {
       width: 36px;
       height: 36px;
       vertical-align: middle;
     }
+
     .caption {
       margin-top: 8px;
       font-size: 0.9rem;
@@ -168,10 +145,12 @@
       pointer-events: none;
       z-index: 100;
     }
+
     .back-to-top-button.show {
       opacity: 1;
       pointer-events: auto;
     }
+
     .back-to-top-button:hover {
       transform: scale(1.1);
       background-color: #b7aff2;
@@ -179,11 +158,6 @@
   </style>
 </head>
 <body>
-<div id="hamburger" class="hamburger">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
 
 <nav>
   <a href="index.html">Q&A</a>
@@ -192,13 +166,14 @@
 
 <div class="card">
   <a id="top"></a>
-  <h1>Channel Rules</h1>
-
-  <div class="qa"><div class="question">Be respectful?</div><div class="answer">Yes. We're all stressed but not rude.</div></div>
-  <div class="qa"><div class="question">No hate speech?</div><div class="answer">Zero tolerance for any kind of discrimination.</div></div>
-  <div class="qa"><div class="question">No spam or self-promo?</div><div class="answer">Please don’t. Not the place.</div></div>
-  <div class="qa"><div class="question">Triggering topics?</div><div class="answer">Avoid unless the conversation calls for it. Use content warnings if necessary.</div></div>
-  <div class="qa"><div class="question">Keep chat comfy?</div><div class="answer">Vibe checks will be performed randomly. You’ve been warned.</div></div>
+  <h1>Rules</h1>
+  <ul>
+    <li>Be kind and respectful to others.</li>
+    <li>No hate speech, discrimination, or bullying.</li>
+    <li>Don’t spam or self-promote without permission.</li>
+    <li>Keep things light — it's called "stress" for a reason.</li>
+    <li>Mods have final say. Chill with them.</li>
+  </ul>
 </div>
 
 <footer>
@@ -215,12 +190,6 @@ const backToTopBtn = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
   const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
   backToTopBtn.classList.toggle('show', scrollPosition > 150);
-});
-
-const hamburger = document.getElementById('hamburger');
-const nav = document.querySelector('nav');
-hamburger.addEventListener('click', () => {
-  nav.classList.toggle('show');
 });
 </script>
 </body>
