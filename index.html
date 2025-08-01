@@ -7,7 +7,10 @@
   <link rel="icon" href="https://yt3.googleusercontent.com/pQBD1tbxoYhKuzpBcYvPiFgdhQh__6x5XLS9W80CK1-wc4BlLurwXb544tkWpvie_HPUk35r6w=s160-c-k-c0x00ffffff-no-rj" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Barlow+Condensed:ital,wght@1,500&display=swap" rel="stylesheet" />
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Barlow', sans-serif;
       background-color: #302c45;
@@ -64,9 +67,45 @@
       line-height: 1.1;
     }
 
-    .qa { margin-bottom: 24px; }
-    .question { font-weight: bold; margin-bottom: 4px; }
-    .answer { font-weight: normal; }
+    .qa {
+      margin-bottom: 24px;
+    }
+
+    .question {
+      font-weight: bold;
+      font-family: 'Barlow', sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .answer {
+      font-weight: normal;
+    }
+
+    a {
+      color: #bbaaf0;
+      font-weight: bold;
+      text-decoration: none;
+      position: relative;
+    }
+
+    a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background-color: #bbaaf0;
+      transition: width 0.3s ease;
+    }
+
+    a:hover::after {
+      width: 100%;
+    }
+
+    a:hover {
+      color: #bbaaf0;
+    }
 
     footer {
       text-align: center;
@@ -82,7 +121,9 @@
       transform: scale(1.1);
     }
 
-    .twitch-link::after { display: none !important; }
+    .twitch-link::after {
+      display: none !important;
+    }
 
     .twitch-icon {
       width: 36px;
@@ -138,10 +179,30 @@
     <a id="top"></a>
     <h1>Get to know me:<br>Questions & Answers</h1>
 
-    <!-- Q&A entries (trimmed for brevity, add more as needed) -->
+    <!-- Restored Full Q&A Entries -->
     <div class="qa"><div class="question">What’s your name?</div><div class="answer">Kevin</div></div>
+    <div class="qa"><div class="question">What do you do?</div><div class="answer">Semi-functioning human bean</div></div>
+    <div class="qa"><div class="question">What do you like?</div><div class="answer">Naps with a cool breeze, ramen, tennis, Apex Legends, miso soup, and stress (the Twitch channel, not the emotion).</div></div>
+    <div class="qa"><div class="question">What don’t you like?</div><div class="answer">Wet socks, people who litter, being perceived.</div></div>
     <div class="qa"><div class="question">Where can I find you?</div><div class="answer">On <a href="https://twitch.tv/stress" target="_blank">Twitch</a> or avoiding social interaction somewhere.</div></div>
+    <div class="qa"><div class="question">Can I tip you?</div><div class="answer">Only if it won’t hurt your soul, and wallet.</div></div>
+    <div class="qa"><div class="question">Favorite food?</div><div class="answer">Ramen. Shin Ramen. Two packs. No regrets.</div></div>
+    <div class="qa"><div class="question">Favorite game?</div><div class="answer">Wattson mains rise up.</div></div>
+    <div class="qa"><div class="question">Weirdest fear?</div><div class="answer">Accidentally replying all on a company-wide email.</div></div>
+    <div class="qa"><div class="question">Guilty pleasure?</div><div class="answer">Scrolling memes until my responsibilities go away.</div></div>
+    <div class="qa"><div class="question">Pet peeve?</div><div class="answer">Loud chewing. And people who don’t use turn signals.</div></div>
+    <div class="qa"><div class="question">Favorite time of day?</div><div class="answer">That magical moment when food delivery finally arrives.</div></div>
+    <div class="qa"><div class="question">Childhood dream job?</div><div class="answer">Pokémon master. Still pending.</div></div>
+    <div class="qa"><div class="question">Most used emoji?</div><div class="answer">😩</div></div>
+    <div class="qa"><div class="question">Go-to karaoke song?</div><div class="answer">“Tequila” — mostly because it’s one word.</div></div>
+    <div class="qa"><div class="question">What do you always lose?</div><div class="answer">My will to socialize at parties.</div></div>
+    <div class="qa"><div class="question">Coffee or tea?</div><div class="answer">Both. Simultaneously. For balance.</div></div>
+    <div class="qa"><div class="question">Favorite season?</div><div class="answer">Hoodie weather (a.k.a. Fall).</div></div>
+    <div class="qa"><div class="question">Random talent?</div><div class="answer">I can recite the Pokémon theme song with emotional conviction.</div></div>
+    <div class="qa"><div class="question">What makes you laugh?</div><div class="answer">Timing. And ducks wearing hats.</div></div>
+    <div class="qa"><div class="question">Best snack?</div><div class="answer">Those tiny pretzels that come in party mix bags. Elite crunch.</div></div>
 
+    <!-- Footer -->
     <footer>
       <a href="https://twitch.tv/stress" target="_blank" class="twitch-link">
         <img src="https://i.imgur.com/Urw30ly.png" alt="Twitch" class="twitch-icon" />
@@ -150,6 +211,7 @@
     </footer>
   </div>
 
+  <!-- Floating back to top button -->
   <a href="#top">
     <button class="back-to-top-button" id="backToTop">↑</button>
   </a>
