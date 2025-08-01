@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Q&A</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,500&display=swap" rel="stylesheet" />
   <style>
     html {
       scroll-behavior: smooth;
@@ -29,16 +29,15 @@
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
     h1 {
-      font-family: 'Oswald', sans-serif;
-      font-size: 40px;
-      text-transform: uppercase;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 42px;
       font-style: italic;
-      text-align: left;
+      text-transform: uppercase;
       color: #ffffff;
+      text-align: left;
       margin-bottom: 40px;
       letter-spacing: 1px;
       line-height: 1.4;
@@ -126,7 +125,7 @@
     <a id="top"></a>
     <h1>Get to know me:<br>Questions & Answers</h1>
 
-    <!-- Original Q&A -->
+    <!-- Q&A Entries -->
     <div class="qa"><div class="question">What’s your name?</div><div class="answer">Kevin</div></div>
     <div class="qa"><div class="question">What do you do?</div><div class="answer">Semi-functioning human bean</div></div>
     <div class="qa"><div class="question">What do you like?</div><div class="answer">Naps with a cool breeze, ramen, tennis, Apex Legends, miso soup, and stress (the Twitch channel, not the emotion).</div></div>
@@ -134,22 +133,16 @@
     <div class="qa"><div class="question">Where can I find you?</div><div class="answer">On <a href="https://twitch.tv/stress" target="_blank">Twitch</a> or avoiding social interaction somewhere.</div></div>
     <div class="qa"><div class="question">Can I tip you?</div><div class="answer">Only if it won’t hurt your soul, and wallet.</div></div>
 
-    <!-- Temporary Q&A to make page scrollable -->
-    <div class="qa"><div class="question">Favorite snack?</div><div class="answer">Whatever is closest to me when I’m spiraling.</div></div>
-    <div class="qa"><div class="question">Most used word?</div><div class="answer">“Anyway...”</div></div>
-    <div class="qa"><div class="question">Worst advice you've ever taken?</div><div class="answer">"Just wing it."</div></div>
-    <div class="qa"><div class="question">Dream vacation?</div><div class="answer">A cabin in the woods, no notifications, unlimited ramen.</div></div>
-    <div class="qa"><div class="question">Favorite sound?</div><div class="answer">The microwave beeping when food is ready.</div></div>
-    <div class="qa"><div class="question">What keeps you up at night?</div><div class="answer">Existential dread and bad posture.</div></div>
-
+    <!-- Footer with your Twitch icon -->
     <footer>
       <a href="https://twitch.tv/stress" target="_blank" class="twitch-link" aria-label="Visit my Twitch">
-        <img src="https://cdn.jsdelivr.net/gh/danielcranney/readme-generator/icons/socials/twitch.svg" alt="Twitch" class="twitch-icon" />
+        <img src="glitch_flat_white.svg" alt="Twitch" class="twitch-icon" />
       </a>
       <div class="caption">Watch me suffer live.</div>
     </footer>
   </div>
 
+  <!-- Floating Back to Top Button -->
   <a href="#top">
     <button class="back-to-top-button" id="backToTop" aria-label="Back to top">↑</button>
   </a>
