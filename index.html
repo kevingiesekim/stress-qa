@@ -37,12 +37,7 @@
       font-style: italic;
       text-decoration: underline;
       text-align: left;
-      background-color: #9f95da;
-      color: #302c45;
-      padding: 12px 16px;
-      border-radius: 6px;
-      display: inline-block;
-      line-height: 1.3;
+      color: #ffffff;
       margin-bottom: 40px;
     }
 
@@ -92,17 +87,34 @@
       font-style: italic;
     }
 
-    .back-to-top {
-      margin-top: 16px;
-      font-size: 0.85rem;
-      color: #aaa8d1;
-      text-decoration: none;
-      display: inline-block;
+    .back-to-top-button {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #9f95da;
+      color: #302c45;
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 100;
     }
 
-    .back-to-top:hover {
-      color: #ffffff;
-      text-decoration: underline;
+    .back-to-top-button.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top-button:hover {
+      transform: scale(1.1);
+      background-color: #b7aff2;
     }
   </style>
 </head>
@@ -144,12 +156,27 @@
 
     <footer>
       <a href="https://twitch.tv/stress" target="_blank" class="twitch-link" aria-label="Visit my Twitch">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Twitch_glitch_logo.svg" alt="Twitch" class="twitch-icon" />
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitch.svg" alt="Twitch" class="twitch-icon" />
       </a>
-      <div class="caption">Watch me suffer live</div>
-      <a href="#top" class="back-to-top">Back to top ↑</a>
+      <div class="caption">Watch me suffer live.</div>
     </footer>
   </div>
+
+  <a href="#top">
+    <button class="back-to-top-button" id="backToTop" aria-label="Back to top">↑</button>
+  </a>
+
+  <script>
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 150) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+  </script>
 
 </body>
 </html>
